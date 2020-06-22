@@ -1,0 +1,18 @@
+To Enable Spark Logging & History Server
+first start start history server
+*****************************************
+mkdir -p /tmp/spark-events
+/usr/local/spark/sbin/start-history-server.sh
+
+In the Eclipse code: add the below config in the Spark Session as given below:
+******************************************************************************
+
+val spark=SparkSession.builder().appName("app name").master("local[*]")
+.config("spark.history.fs.logDirectory", "file:///tmp/spark-events")
+.config("spark.eventLog.dir", "file:////tmp/spark-events")
+.config("spark.eventLog.enabled", "true")
+.getOrCreate();
+
+In the Web Browser:
+*******************
+http://localhost:18080
