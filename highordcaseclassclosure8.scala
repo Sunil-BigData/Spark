@@ -44,15 +44,3 @@ println( "Bonus value is = " + bonus1(100) )
     
   }
 }
-
-
-
-
-
-
-
-
-
-
-
-
